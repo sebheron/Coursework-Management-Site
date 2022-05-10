@@ -16,6 +16,11 @@
     --button-drop-color: #c0c0c06f;
     --button-popup-color: #9393936f;
     --button-shadow: #3b3b3b88;
+
+    --button-disabled-text: #4c444488;
+    --button-disabled: #38323288;
+
+    --error-color: #cc1f1f;
 }
 
 * {
@@ -67,6 +72,7 @@ body {
     padding-right: 7px;
     border-radius: 4px;
     transition: background-color 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .embossed-button, .embossed-button:visited, .embossed-button:hover, .embossed-button:active {
@@ -88,6 +94,11 @@ body {
     border-left: 2px solid var(--button-shadow);
     border-right: 2px solid var(--button-shadow);
     border-bottom: 1px solid var(--button-shadow); 
+}
+
+.embossed-button:disabled {
+    background-color: var(--button-disabled);
+    color: var(--button-disabled-text);
 }
 
 .debossed-button, .debossed-button:visited, .debossed-button:hover, .debossed-button:active {
@@ -180,6 +191,15 @@ body {
     width: 100%;
 }
 
+.w22 {
+    width: 22%;
+}
+
+.center-text {
+    margin: 20px auto;
+    text-align: center;
+}
+
 .panel-container {
     float: right;
 }
@@ -229,6 +249,9 @@ body {
     height: 100%;
     align-self: flex-end;
     margin-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
 }
 
 .panel-buttons a {
@@ -239,6 +262,40 @@ h1, h2 {
     font-weight: normal;
 }
 
+.fill-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.input-box {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 5px 2px;
+    border: solid 1px var(--all-shadow);
+}
+
+.error-text {
+    width: 100%;
+    text-align: center;
+    background-color: var(--error-color);
+    border-radius: 5px;
+    margin: auto;
+    padding: 5px;
+    color: #fff;
+    width: 80%;
+    white-space: pre-line;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 900px) {
+    .w22 {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .logo-text {
         display: none;
@@ -246,5 +303,9 @@ h1, h2 {
     
     .left-panel-container {
         width: 100%;
+    }
+
+    .w22 {
+        width: 80%;
     }
 }

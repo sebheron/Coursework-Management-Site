@@ -14,8 +14,11 @@ CREATE TABLE books
 CREATE TABLE users
 (
     id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(15),
-    password VARCHAR(15),
+    name VARCHAR(30),
+    phone VARCHAR(30),
+    email VARCHAR(30),
+    password TEXT,
+    admin CHAR(1) DEFAULT 'N' CHECK (admin IN ('Y', 'N')),
     PRIMARY KEY (id)
 );
 

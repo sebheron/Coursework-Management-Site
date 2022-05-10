@@ -10,7 +10,7 @@
         <link rel="icon" href="favicon.ico">
         <link rel="apple-touch-icon" href="image/512.png"/>
 
-        <title>Online Bookstore</title>
+        <title>Home | Online Bookstore</title>
 
         <link href="static/css/style.css" rel="stylesheet"/>
 
@@ -21,18 +21,12 @@
         <![endif]-->
     </head>
     <body>
-        <div class="login-bar">
-            <a class="embossed-button" href="register.html">Register</a>
-            <a class="embossed-button" href="logout.html">Logout</a>
-            <a class="embossed-button" href="login.html">Login</a>
-            <p>Username</p>
+        <div id="user-bar" class="login-bar">
         </div>
         <div class="navigation-bar">
             <div class="center-panel-container">
                 <a class="logo" href="index.html"><img src="image/books.png"/><span class="logo-text">Online Bookstore</span></a>
-                <div class="navigation-buttons">
-                    <a class="debossed-button" href="index.html">Home</a>
-                    <a class="debossed-button" href="order.html">Order</a>
+                <div id="nav-bar" class="navigation-buttons">
                 </div>
             </div>
         </div>
@@ -44,7 +38,7 @@
                         <div class="combo-container">
                             <p>Type:</p>
                             <select name="types" id="type" class="combo-box">
-                                <option value="none" selected>Select a type...</option>
+                                <option value="" selected>Select a type...</option>
                                 <option value="school">School Books</option>
                                 <option value="fiction">Fiction</option>
                             </select>
@@ -58,10 +52,10 @@
                 </div>
             </div>
             <div id="book-container" class="right-panel-container">
-
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="static/js/store.js"></script>
+        <script src="static/js/userbar.js"></script>
     </body>
 </html>

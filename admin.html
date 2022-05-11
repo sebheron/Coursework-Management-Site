@@ -4,13 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Login to the book store.">
-        <meta name="author" content="19014086">
-        <meta name="keywords" content="Library, Libraries, Book, Books, Novel, Novella, Non-fiction, Fiction, Reading, Reading List, Login">
         <link rel="icon" href="favicon.ico">
-        <link rel="apple-touch-icon" href="image/512.png"/>
 
-        <title>Login | Online Bookstore</title>
+        <title>Management | Online Bookstore</title>
 
         <link href="static/css/style.css" rel="stylesheet"/>
 
@@ -30,18 +26,28 @@
                 </div>
             </div>
         </div>
-        <div class="panels-container">
-            <div class="panel-block w22">
-                <h1 class="center-text">Login</h1>
-                <form method="POST" action="php/login.php" novalidate>
-                    <input id="id-input" class="hidden" type="number" name="id" value="0" required/> 
-                    <input class="input-box" type="text" name="phone" placeholder="Phone Number" required>
-                    <input class="input-box" type="password" name="password" placeholder="Password" required>
-                    <button class="embossed-button fill-button" type="submit">Login</button>
-                </form>
+        <div class="orders-container">
+            <div class="panel-block w50">
+                <table class="wrap-text">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Book ID</th>
+                            <th>Book Title</th>
+                            <th>Book Author</th>
+                            <th>Book Price</th>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>User Phone</th>
+                            <th>User Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body"></tbody>
+                </table>
             </div>
         </div>
         <script src="static/js/userbar.js"></script>
         <script src="static/js/login.js"></script>
+        <script src="static/js/admin.js"></script>
     </body>
 </html>

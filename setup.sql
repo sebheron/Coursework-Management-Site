@@ -28,7 +28,7 @@ CREATE TABLE orders
     bookid INT NOT NULL,
     userid INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (bookid) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (bookid) REFERENCES books(id) ON DELETE CASCADE,
     FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE
 );
 

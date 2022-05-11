@@ -2,7 +2,12 @@
 /*
 Builds a HTML page with a title and message then navigating to the url after the time.
 */
-function displayMessage($title, $message, $url) {?>
+require "db.php";
+require "verify.php";
+require "security.php";
+require "message.php";
+
+function displayBook($id, $title, $detail, $price, $img, $loggedin) {?>
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -36,15 +41,51 @@ function displayMessage($title, $message, $url) {?>
                 </div>
             </div>
             <div class="panels-container">
-                <div class="panel-block w22">
+                <div class="panel-block w40">
+                    <div class="image-container">
+                        <img class="book-image" src="<?php echo $img?>"/>
+                        <p class="circle-price">£<?php echo $price?></p>
+                    </div>
                     <h1 class="center-text"><?php echo $title?></h1>
-                    <p class="center-text"><?php echo $message?></p>
-                    <a href="<?php echo $url?>" class="embossed-button fill-button">Continue</a>
+                    <p class="center-text"><?php echo $detail?></p>
+                    <?php if ($loggedin) {
+                        ?><a href="order.php?id=<?php echo $id?>" class="embossed-button semi-fill-button w40">Order</a><?php
+                    }
+                    else {?>
+                        <a href="../login.html?id=<?php echo $id?>" class="embossed-button semi-fill-button w40">Login to order</a>
+                    <?php
+                    }?>
                 </div>
             </div>
             <script src="../static/js/userbar.js"></script>
         </body>
     </html>
 <?php 
+}
+
+$found = false;
+if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+    $query = "SELECT title, detail, price, img FROM books WHERE id = ? LIMIT 1";
+    if($stmt = $conn->prepare($query)) {
+        $stmt->bind_param("i", $_GET["id"]);
+        $stmt->execute();
+        $stmt->bind_result($dbtitle, $dbdetail, $dbprice, $dbimg);
+        while($stmt->fetch()) {
+            displayBook($_GET["id"], $dbtitle, $dbdetail, $dbprice, $dbimg, isset($response["success"]) && $response["success"]);
+            $found = true;
+        }
+        $stmt->close();
+    }
+    else {
+        displayMessage("Login", "Error connecting to database.", "../");
+        exit();
+    }
+}
+else {
+    displayMessage("Error", "Missing book id.", "../");
+    exit();
+}
+if (!$found) {
+    displayMessage("Error", "Book not found in database.", "../");
 }
 ?>

@@ -64,12 +64,12 @@
                     <div class=\"book\">
                         <img src=\"" . $img . "\"/>
                         <div class=\"panel-contents\">
-                            <a href=\"display.php?id=" . $id . "\"><h2>" . $title . "</h2></a>
+                            <a href=\"php/display.php?id=" . $id . "\"><h2>" . $title . "</h2></a>
                             <p>" . $detail . "</p>
                             <p class=\"price\"><i>£" . $price . "</i></p>
                         </div>
                         <div class=\"panel-buttons\">
-                            <a class=\"embossed-button\" href=\"php/view.php?id=" . $id . "\">View</a>
+                            <a class=\"embossed-button\" href=\"php/display.php?id=" . $id . "\">View</a>
                             " . getOrderButton($id, $loggedin) . "
                         </div>
                     </div>

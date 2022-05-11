@@ -16,7 +16,10 @@ function domLoaded() {
             var json = JSON.parse(this.responseText);
             if(json.success) {
                 user_bar.innerHTML = "<a class=\"embossed-button\" href=\"" + forward + "logout.php\">Logout</a><p>" + json.name + "</p>";
-                nav_bar.innerHTML = "<a class=\"debossed-button\" href=\"" + backward + "index.html\">Home</a><a class=\"debossed-button\" href=\"" + backward + "order.html\">Orders</a>";
+                nav_bar.innerHTML = "<a class=\"debossed-button\" href=\"" + backward + "index.html\">Home</a><a class=\"debossed-button\" href=\"" + backward + "php/orders.php\">Orders</a>";
+                if (json.admin) {
+                    nav_bar.innerHTML += "<a class=\"debossed-button\" href=\"" + backward + "admin.html\">Management</a>";
+                }
             } else {
                 user_bar.innerHTML = "<a class=\"embossed-button\" href=\"" + backward + "register.html\">Register</a><a class=\"embossed-button\" href=\"" + backward + "login.html\">Login</a>";
                 nav_bar.innerHTML = "<a class=\"debossed-button\" href=\"" + backward + "index.html\">Home</a>";

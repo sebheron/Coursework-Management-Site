@@ -63,6 +63,7 @@ function displayBook($id, $title, $detail, $price, $img, $loggedin) {?>
 <?php 
 }
 
+//Gets book information from the database by id.
 $found = false;
 if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
     $query = "SELECT title, detail, price, img FROM books WHERE id = ? LIMIT 1";
